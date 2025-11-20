@@ -1,7 +1,12 @@
-
 # lscs-core-web
 
 This project was bootstrapped with **create-lscs-next-app**.
+
+## Purpose
+
+- Dashboard for requesting API keys for accessing LSCS-related data through `lscs-core-api`
+- Core Metrics from LSCS data
+  - ex. [39th LSCS metrics](https://docs.google.com/document/u/1/d/1ElyVq5vIkZoPveWUUHx_DLW_-WpBecOJMjwW3skd08c/mobilebasic)
 
 ---
 
