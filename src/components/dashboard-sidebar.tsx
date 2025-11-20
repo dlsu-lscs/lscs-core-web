@@ -7,6 +7,7 @@ import {
     LogOutIcon,
     UserIcon,
     User,
+    ActivityIcon,
 } from "lucide-react"
 import Link from "next/link"
 import {
@@ -20,6 +21,7 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
     SidebarSeparator,
+    SidebarTrigger,
 } from "@/components/ui/sidebar"
 import Image from "next/image"
 
@@ -30,9 +32,9 @@ const links = [
         icon: <HomeIcon />
     },
     {
-        name: "Users",
-        href: "/dashboard/users",
-        icon: <UsersIcon />
+        name: "Metrics",
+        href: "/dashboard/metrics",
+        icon: <ActivityIcon />
     },
     {
         name: "Settings",
@@ -44,15 +46,17 @@ const links = [
 export default function DashboardSidebar() {
     return (
         <Sidebar>
-            <SidebarHeader className="p-2">
-                <div className="flex items-center gap-2">
-                    <Image
-                        src="/lscs-logo.png"
-                        alt="LSCS Logo"
-                        width={32}
-                        height={32}
-                    />
-                    <h1 className="text-lg font-semibold">LSCS Core</h1>
+            <SidebarHeader className="p-2 mb-5">
+                <div className="flex justify-between">
+                    <div className="flex items-center gap-3">
+                        <Image
+                            src="/lscs-logo.png"
+                            alt="LSCS Logo"
+                            width={32}
+                            height={32}
+                        />
+                        <h1 className="text-lg font-semibold">LSCS Core</h1>
+                    </div>
                 </div>
             </SidebarHeader>
 
@@ -60,11 +64,11 @@ export default function DashboardSidebar() {
             <SidebarContent>
                 <SidebarMenu>
                     {links.map((item) => (
-                        <SidebarMenuItem>
-                            <SidebarMenuButton asChild>
-                                <Link href={item.href}>
+                        <SidebarMenuItem key={item.name}>
+                            <SidebarMenuButton asChild className="p-7">
+                                <Link href={item.href} className="flex gap-4">
                                     {item.icon}
-                                    {item.name}
+                                    <span>{item.name}</span>
                                 </Link>
                             </SidebarMenuButton>
                         </SidebarMenuItem>
